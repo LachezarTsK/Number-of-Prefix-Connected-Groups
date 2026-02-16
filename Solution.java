@@ -9,12 +9,12 @@ public class Solution {
         int numberOfPrefixConnectedGroups = 0;
         Map<String, Integer> prefixToFrequency = new HashMap<>();
 
-        for (int i = 0; i < words.length; ++i) {
-            if (words[i].length() < prefixLength) {
+        for (String word : words) {
+            if (word.length() < prefixLength) {
                 continue;
             }
 
-            String prefix = words[i].substring(0, prefixLength);
+            String prefix = word.substring(0, prefixLength);
             int updatedFrequency = prefixToFrequency.getOrDefault(prefix, 0) + 1;
             prefixToFrequency.put(prefix, updatedFrequency);
 
