@@ -3,12 +3,12 @@ function prefixConnected(words: string[], prefixLength: number): number {
     let numberOfPrefixConnectedGroups = 0;
     const prefixToFrequency = new CustomizedhMap<string, number>();
 
-    for (let i = 0; i < words.length; ++i) {
-        if (words[i].length < prefixLength) {
+    for (let word of words) {
+        if (word.length < prefixLength) {
             continue;
         }
 
-        const prefix = words[i].substring(0, prefixLength);
+        const prefix = word.substring(0, prefixLength);
         const updatedFrequency = prefixToFrequency.getOrDefault(prefix, 0) + 1;
         prefixToFrequency.set(prefix, updatedFrequency);
 
